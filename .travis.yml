@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '8'
+before_install:
+- npm install -g @angular/cli
+install: npm install
+branches:
+  only:
+  - master
+after_script:
+- chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
+deploy:
+  provider: heroku
+  api_key:
+    secure: Pj53GUcKCN0CPezv+osC6QmL9qbSny7wgz6tB1mkP0XXOCakB0IXjvHH5rvZgrhXemsdcEpAJ5r/KA7/cUdNHluNXnAm6Y5ikAo9IunNl6T9tyJY+sv43dFS+A7zvCoWiVm3THq+I83iPpMHuTGYOtqxKTENbMzEfAh6c6OQbiGee+9tiDcXXs/my+bK5jegbSe6XE1UCzuglEfGi+rQauIRrxHMX51vQ8672d2Rfu/NchXYXIQgOH98NJDPKqeJr5rO+YfQokxdQJvwAT1U8D3z6Zssp0nWq7KCtzKZClJMEnQmIkO0sfthleOewFfDONl8BYwLllio3vioogY7SA3jB+0l2h43zsK7o0oFZkZCb0HLG8LIn9iqxOoTwzbbBPZEt42jUZhPGJIvWlhjgJrBiMN9wXdTCJZnG2Knzx9Gu7G438AIeloxsKN2RUzEhEjwjxnc00+KPX36fqNayO4dM3gCDlG8PZbbo/2OMjgeVIyJbS2OBVn3w92EkSEqwG+XvlaWIfET4k74JvS7i0EnTaxgtiAoUPqKOXa4iNwRWYSTRAQtxH8KoFGXA0COHsinVc5j4wJlEsdvYwEh0F+7NR34AgLQJoIMZ+j+9s/ksbju2D/TQ547l/6ocfztR1lEUdJv89v1yn/JixCDRGuAIUQTnEhnP2QSxxHaYTk=
+  app: tutorial-drinks
